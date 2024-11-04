@@ -5,9 +5,9 @@ services:
     image: qbanxiaoli/fastdfs
     # 该容器是否需要开机启动+自动重启。若需要，则取消注释。
     restart: always
-    container_name: fastdfs
+    container_name: fastdfs5
     ports:
-      - "80:80"
+      - "18000:80"
       - "22122:22122"
       - "23000:23000"
     environment:
@@ -32,7 +32,7 @@ services:
       TOKEN_CHECK_FAIL: /etc/fdfs/anti-steal.jpg
     volumes:
       # 将本地目录映射到docker容器内的fastdfs数据存储目录，将fastdfs文件存储到主机上，以免每次重建docker容器，之前存储的文件就丢失了。
-      - ~/fastdfs:/var/local
+      - ~/ExtData/fastdfs5:/var/local
     # 由于windows和unix识别不了host网络，目前需要新建网段，强制指定容器ip与宿主机ip一致
     networks:
       fastdfs_net:

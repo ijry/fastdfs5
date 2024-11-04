@@ -6,6 +6,10 @@ services:
     # 该容器是否需要开机启动+自动重启。若需要，则取消注释。
     restart: always
     container_name: fastdfs
+    ports:
+      - "18000:80"
+      - "22122:22122"
+      - "23000:23000"
     environment:
       # nginx服务端口,默认80端口，可修改
       WEB_PORT: 80
@@ -28,6 +32,6 @@ services:
       TOKEN_CHECK_FAIL: /etc/fdfs/anti-steal.jpg
     volumes:
       # 将本地目录映射到docker容器内的fastdfs数据存储目录，将fastdfs文件存储到主机上，以免每次重建docker容器，之前存储的文件就丢失了。
-      - ～/fastdfs:/var/local
+      - ～/ExtData/fastdfs5:/var/local
     # 网络模式为host，可不暴露端口，即直接使用宿主机的网络端口，只适用于linux系统
     network_mode: host

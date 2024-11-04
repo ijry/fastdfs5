@@ -1,11 +1,11 @@
-# FastDFS+FastDHT(单机+集群版)
-使用docker-compose创建FastDFS+FastDHT(单机+集群版)服务(tracker,storage,fastdht,nginx)
+# FastDFS5+FastDHT(单机+集群版)
+使用docker-compose创建FastDFS5+FastDHT(单机+集群版)服务(tracker,storage,fastdht,nginx)
 ## 搭建教程
 1. 安装docker和docker-compose  
 2. 安装git    
 3. clone项目    
  ```
- git clone https://qbanxiaoli@github.com/qbanxiaoli/fastdfs.git 
+ git clone https://github.com/ijry/fastdfs5.git 
  ```    
 4. 进入fastdfs目录  
 ```
@@ -47,9 +47,9 @@
 ```
  fdfs_monitor /etc/fdfs/client.conf
 ```
- 该镜像已经上传到公开镜像仓库，也可跳过镜像构建步骤，直接从Docker Hub或者阿里云容器镜像仓库上拉取，linux环境下可用如下命令拉取镜像后直接运行容器
+ 该镜像已经上传到公开镜像仓库，也可跳过镜像构建步骤，直接从Docker Hub或者阿里云容器镜像仓库上拉取，linux环境下可用如下命令拉取镜像后直接运行容器。
 ```
- docker pull qbanxiaoli/fastdfs 或者 docker pull registry.cn-hangzhou.aliyuncs.com/qbanxiaoli/fastdfs
+ docker pull ijry/fastdfs5
 
- docker run -d --restart=always --net=host --name=fastdfs -e IP=192.168.0.105 -v ～/fastdfs:/var/local qbanxiaoli/fastdfs
+ docker run -d --restart=always --net=host --name=fastdfs5 -e IP=192.168.0.105 -v ～/ExtData/fastdfs5:/var/local ijry/fastdfs5
 ```
